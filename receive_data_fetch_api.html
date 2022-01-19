@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Api in js</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <button id="button1" onclick="fetch_data()">Fetch Data</button>
+    <script>
+        function fetch_data() {
+
+            let url = "https://jsonplaceholder.typicode.com/todos";
+            fetch(url, {
+                    method: "GET"
+                })
+                .then(x => x.json())
+                .then((actualdata) => {
+                    let table =
+                        "<table border='1' style='border-collapse:collapse;'><tr><th>UserId</th><th>Id</th><th>Title</th><th>Completed</th></tr>"
+                    for (let i = 0; i < actualdata.length; i++) {
+                        let arr = actualdata[i];
+                        table += "<tr><td>" + arr.userId + "</td><td>" + arr.id + "</td><td>" + arr.title +
+                            "</td><td>" + arr.completed + "</td></tr>";
+                    }
+                    document.getElementById("demo").innerHTML = table;
+                })
+                .catch((error) => {
+                    console.log(`Error ${error}`);
+                });
+        }
+    </script>
+</body>
+
+</html>
