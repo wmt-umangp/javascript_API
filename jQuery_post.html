@@ -14,7 +14,7 @@
         $(document).ready(function(){
             $("#button1").click(function(){
                 $.post("https://jsonplaceholder.typicode.com/photos",{name:'up', age:'21'},function(data,status){
-                    alert("data: "+data+"\nstatus:"+status);             
+                    alert("data: "+JSON.stringify(data)+"\nstatus:"+status);             
                 });
             });
         });
