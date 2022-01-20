@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post method</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="div1"></div>
+    <button id="button1">Load Content</button>
+    <script>
+        $(document).ready(function(){
+            $("#button1").click(function(){
+                $.post("https://jsonplaceholder.typicode.com/photos",{name:'up', age:'21'},function(data,status){
+                    alert("data: "+data+"\nstatus:"+status);             
+                });
+            });
+        });
+    </script>
+</body>
+</html>
